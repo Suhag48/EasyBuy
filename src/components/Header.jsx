@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
 import { Button } from "@/components/ui/button";
-import { Apple } from "lucide-react";
+import { Apple, ShoppingCart } from "lucide-react";
 
 const Header = () => {
   return (
     <header className="sticky top-0 w-full border-b bg-gray-300 z-10">
-      <div className="h-16 container mx-auto flex items-center justify-between px-2">
+      <div className="h-20 px-4 sm:px-8 md:px-12 lg:px-24 flex items-center justify-between">
         {/* Desktop logo */}
         <Link to="/" className="hidden md:flex text-xl md:text-2xl font-medium text-gray-800 gap-4 items-center">
         <Apple />
@@ -21,14 +21,17 @@ const Header = () => {
         <MobileNav />
 
         {/* Desktop & Mobile */}
-        <h1 className="flex items-center gap-4">
-          <Button asChild>
-            <Link to="/login">Login</Link>
+        <div className="flex items-center">
+          <Button variant="link">
+            <Link to="/login" className="text-lg font-normal">Login</Link>
           </Button>
-          <Button asChild>
-            <Link to="/register">Register</Link>
+          <Button variant="link">
+            <Link to="/register" className="text-lg font-normal">Register</Link>
           </Button>
-        </h1>
+          <Button variant="outline" size="icon" className="bg-transparent border-none">
+          <ShoppingCart className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
     </header>
   );
